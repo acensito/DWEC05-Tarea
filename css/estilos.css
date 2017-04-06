@@ -1,0 +1,202 @@
+/*
+2017 Felipe Rodríguez Gutiérrez
+
+CODIGO CREADO BAJO LICENCIA CREATIVE COMMONS
+
+Reconocimiento - NoComercial - CompartirIgual (by-nc-sa): 
+
+No se permite un uso comercial de la obra original ni de las posibles obras 
+derivadas, la distribución de las cuales se debe hacer con una licencia igual
+a la que regula la obra original.
+*/
+
+/*
+Módulo: Desarrollo Web Entorno Cliente
+Tema 05: Modelo de objetos de documento en JavaScript
+Tarea 5: Wack-A-Mole!
+Alumno: Felipe Rodríguez Gutiérrez
+*/
+/* 
+    Created on : 21-mar-2017, 20:13:41
+    Author     : felipon
+*/
+
+/* GENERALES DE LA PLANTILLA */
+
+html {
+    -webkit-font-smoothing: antialiased !important;
+    background-color: #c1c5c9; /*#e6e9e9;*/
+}
+
+body {
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #545454;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 4em 2em 1em;
+    padding-top: 1em;
+}
+
+audio {
+    align-items: center;
+    opacity: 0.4;
+    margin: 3px;
+    width: 765px;
+}
+
+.audioplayer {
+    text-align: center;
+}
+
+footer {
+    margin-top: 1em;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/* TITULO DEL JUEGO */
+
+.logo {
+    opacity: 0.5;
+    margin: 0 auto;
+    padding: 0;
+    width: 524px;
+    height: 168px;
+    background-image: url(../art/title.png);
+}
+
+/* CONTROL DE JUEGO Y MARCADOR PUNTUACION */
+.controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-size: 150%;
+}
+
+input[type='button'] {
+    border-radius: 50px;
+    height: 100%;
+}
+
+.ajustes, .marcador, .comienzo {
+    text-align: center;
+    border: 2px solid;
+    border-color: #545454;
+    border-radius: 3px;
+    height: 105px;
+    padding: 3px;
+    margin: 3px;
+}
+
+.comienzo { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.ajustes{
+    width: 55%;
+}
+
+.marcador {
+    width: 30%
+}
+
+.dificultad, .multi {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#puntos {
+    margin: 20px;
+    display: block;
+    font-size: 250%;
+    color: #FF0000;
+}
+
+/* TABLERO DE JUEGO */
+
+.boxer {
+   display: table;
+   border-collapse: collapse;
+   background-image: url(../art/bg_dirt.png);
+   margin: 0 auto;
+}
+ 
+.boxer .box-row {
+   display: table-row;
+}
+ 
+.boxer .box {
+   padding: 0;
+   display: table-cell;
+   vertical-align: bottom;
+   text-align: center;
+   /*border: 1px solid black;*/
+}
+
+.box {
+    position: relative;
+    overflow:hidden;
+}
+
+.box.UP {
+    height: 245px;
+    width: 255px;
+    background-image: url(../art/grass_up.png);
+}
+
+.box.DOWN {
+    height: 43px;
+    width: 255px;
+    background-image: url(../art/grass_low.png);
+}
+
+/* POSICIONAMIENTO DEL TOPO */
+
+.mole {
+    vertical-align: bottom;
+    position: relative;
+    /*bottom: -8%;*/
+}
+
+/* ANIMACIONES DEL TOPO */
+
+.mole.visible {
+    transition: bottom 0.5s linear;
+    bottom: 0%;
+}
+
+.mole.hidden {
+    transition: bottom 0.3s linear;
+    bottom: -100%;
+}
+
+.mole.dead {
+    transition: bottom 0.2s linear;
+    bottom: -100%;
+}
+
+/* CONFIGURACION IMAGENES PARA EVITAR ARRASTRE CLICK */
+
+img {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
